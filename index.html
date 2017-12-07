@@ -1,0 +1,111 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+	<canvas id="myCanvas" width="300" height="480"></canvas>
+	<a href="javascript:;" onclick="downLoad()">点击下载</a>
+
+	<script src="canvas-to-image.js"></script>
+	<script>
+			var canvas = document.getElementById('myCanvas');
+			var ctx = canvas.getContext('2d');
+
+			//绘制一个填充的矩形
+			ctx.fillStyle = "#F1E7E7";
+			ctx.fillRect(0, 0, 300, 60);
+
+			//设置用户文本的大小字体等属性
+			ctx.font = "small-caps 16px Arial";
+			////设置用户文本填充颜色
+			ctx.fillStyle = "#000000";
+			//绘制文字
+			ctx.fillText('lenovointer',110,35);
+
+			//绘制一个填充的矩形
+			ctx.fillStyle = "#FF5125";
+			ctx.fillRect(0, 60, 300, 460);
+
+			//设置用户文本的大小字体等属性
+			ctx.font = "small-caps 20px Arial";
+			////设置用户文本填充颜色
+			ctx.fillStyle = "#fff";
+			//绘制文字
+			ctx.fillText('微信扫一扫加好友',70,105);
+
+			//插入二维码
+			var imageObj = new Image();
+
+			//允许跨域
+			imageObj.crossOrigin= 'Anonymous';
+			imageObj.src = 'WechatIMG5.png';
+			imageObj.onload = function() {
+
+				//绘制一个填充的矩形
+				ctx.fillStyle = "#fff";
+				ctx.fillRect(40,145,220,210);
+
+				//绘制二维码
+				ctx.drawImage(this,50,150,200,200);
+
+				//圆角矩形背景
+				function Rect(x, y, w, h) {
+					return {x:x, y:y, width:w, height:h};
+				}
+				var Point = function(x, y) {
+					return {x:x, y:y};
+				};
+				var rect = Rect(35, 145, 230, 220);
+				drawRoundedRect(rect, 25, ctx);
+				function drawRoundedRect(rect, r, ctx) {
+					var ptA = Point(rect.x + r, rect.y);
+					var ptB = Point(rect.x + rect.width, rect.y);
+					var ptC = Point(rect.x + rect.width, rect.y + rect.height);
+					var ptD = Point(rect.x, rect.y + rect.height);
+					var ptE = Point(rect.x, rect.y);
+					ctx.lineWidth   = 20;
+					ctx.strokeStyle = "#fff";
+					ctx.fillStyle = "#fff";
+					ctx.beginPath();
+					ctx.moveTo(ptA.x, ptA.y);
+					ctx.arcTo(ptB.x, ptB.y, ptC.x, ptC.y, r);
+					ctx.arcTo(ptC.x, ptC.y, ptD.x, ptD.y, r);
+					ctx.arcTo(ptD.x, ptD.y, ptE.x, ptE.y, r);
+					ctx.arcTo(ptE.x, ptE.y, ptA.x, ptA.y, r);
+					ctx.stroke();
+				}
+
+				//绘制一个填充的矩形
+				ctx.fillStyle = "#fff";
+				ctx.fillRect(53,340,180,30);
+
+				//设置用户文本的大小字体等属性
+				ctx.font = "small-caps 16px Arial";
+				////设置用户文本填充颜色
+				ctx.fillStyle = "#FF5125";
+				//绘制文字
+				ctx.fillText('打开微信[扫一扫]',88,362);
+
+			};
+
+			//设置用户文本的大小字体等属性
+			ctx.font = "small-caps 14px Arial";
+			////设置用户文本填充颜色
+			ctx.fillStyle = "whiter";
+			//绘制文字
+			ctx.fillText('生成商品营销二维码',90,435);
+
+
+			//转化canvas下载图片
+			function downLoad(){
+				canvasToImage('myCanvas', {
+					name: 'Lenovointer',
+					type: 'png',
+					quality: 1
+				});
+			}
+	</script>
+
+
+</body>
+</html>
