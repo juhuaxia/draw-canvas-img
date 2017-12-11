@@ -24,7 +24,7 @@ canvasToImage('myCanvas', {
   type: 'jpg',
   quality: 0.7
 });
-```
+
 **Download as png**
 ```js
 canvasToImage('myCanvas', {
@@ -39,4 +39,4 @@ canvasToImage('myCanvas');
 ```
 
 ##效果展示
-![image](http://github.com/lenovointer/draw-canvas-img/lenovointer.png)
+![image](https://github.com/lenovointer/draw-canvas-img/blob/master/Lenovointer.png)
