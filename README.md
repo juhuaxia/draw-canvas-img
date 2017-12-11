@@ -39,4 +39,5 @@ canvasToImage('myCanvas');
 ```
 
 ##效果展示
+
 ![image](https://github.com/lenovointer/draw-canvas-img/blob/master/Lenovointer.png)
